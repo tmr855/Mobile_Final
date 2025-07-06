@@ -72,7 +72,14 @@ class _ProductListScreenState extends State<ProductListScreen> {
                         )
                         : const Icon(Icons.image_not_supported),
                 title: Text(product.name),
-                subtitle: Text('\$${product.price.toStringAsFixed(2)}'),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('\$${product.price.toStringAsFixed(2)}'),
+                    if (product.categoryName != null)
+                      Text('Category: ${product.categoryName!}'),
+                  ],
+                ),
                 onTap: () {
                   Navigator.push(
                     context,

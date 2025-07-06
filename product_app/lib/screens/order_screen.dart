@@ -110,9 +110,7 @@ class _OrderScreenState extends State<OrderScreen> {
               const SizedBox(height: 10),
               ...widget.orderItems.map(
                 (item) => ListTile(
-                  title: Text(
-                    item.product?.name ?? 'Product ID: ${item.productId}',
-                  ),
+                  title: Text(item.productName),
                   subtitle: Text(
                     'Qty: ${item.quantity} × \$${item.price.toStringAsFixed(2)}',
                   ),

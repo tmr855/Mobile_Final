@@ -47,6 +47,7 @@ class _CartScreenState extends State<CartScreen> {
                 productId: cartItem.product.id,
                 quantity: cartItem.quantity,
                 price: cartItem.product.price,
+                product: cartItem.product, // ✅ Include full product
               ),
             )
             .toList();

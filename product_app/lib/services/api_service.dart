@@ -121,6 +121,19 @@ class ApiService {
     }
   }
 
+  Future<List<OrderItem>> getOrderItems() async {
+    final url = Uri.parse('$baseUrl/order-items'); // 👈 Use correct endpoint
+    final response = await http.get(url, headers: _headers);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = json.decode(response.body);
+
+      return data.map((json) => OrderItem.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load order items');
+    }
+  }
+
   Future<List<order_lower.Order>> getOrders() async {
     final url = Uri.parse('$baseUrl/orders');
     final response = await http.get(url, headers: _headers);
